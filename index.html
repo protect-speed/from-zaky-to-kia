@@ -3,9 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For You ❤️</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -20,27 +26,52 @@ html{
 body{
     min-height:100vh;
     overflow-x:hidden;
+
     font-family:Georgia, "Times New Roman", serif;
+
     color:#f5f5f5;
 
     background:
-        radial-gradient(circle at 15% 15%, rgba(130,0,20,.28), transparent 30%),
-        radial-gradient(circle at 85% 80%, rgba(100,0,15,.25), transparent 35%),
-        radial-gradient(circle at 50% 50%, rgba(255,0,40,.035), transparent 45%),
-        linear-gradient(135deg,#020202,#080808 45%,#030303);
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(130,0,20,.28),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(100,0,15,.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,0,40,.035),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #020202,
+            #080808 45%,
+            #030303
+        );
 
     position:relative;
 }
 
-/* =========================
+
+/* =====================================================
    BACKGROUND
-========================= */
+===================================================== */
 
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:-2;
 
     background:
@@ -54,20 +85,30 @@ body::before{
     animation:bgMove 12s ease-in-out infinite alternate;
 }
 
+
 @keyframes bgMove{
+
     from{
         transform:translateX(-3%);
     }
+
     to{
         transform:translateX(3%);
     }
+
 }
 
+
 body::after{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:20;
 
     background:
@@ -76,378 +117,831 @@ body::after{
             transparent 45%,
             rgba(0,0,0,.6) 100%
         );
+
 }
 
-/* Red glowing lights */
+
+/* =====================================================
+   RED GLOW
+===================================================== */
 
 .glow{
+
     position:fixed;
+
     border-radius:50%;
+
     filter:blur(90px);
+
     pointer-events:none;
+
     z-index:-1;
+
     opacity:.45;
+
 }
+
 
 .glow.one{
+
     width:260px;
     height:260px;
+
     background:#8b0018;
+
     top:-80px;
     left:-80px;
-    animation:floatGlow 9s ease-in-out infinite alternate;
+
+    animation:
+        floatGlow
+        9s
+        ease-in-out
+        infinite
+        alternate;
+
 }
+
 
 .glow.two{
+
     width:320px;
     height:320px;
+
     background:#4b000d;
+
     right:-120px;
     top:30%;
-    animation:floatGlow 11s ease-in-out infinite alternate-reverse;
+
+    animation:
+        floatGlow
+        11s
+        ease-in-out
+        infinite
+        alternate-reverse;
+
 }
+
 
 .glow.three{
+
     width:240px;
     height:240px;
+
     background:#700014;
+
     bottom:-100px;
     left:35%;
-    animation:floatGlow 10s ease-in-out infinite alternate;
+
+    animation:
+        floatGlow
+        10s
+        ease-in-out
+        infinite
+        alternate;
+
 }
+
 
 @keyframes floatGlow{
+
     from{
-        transform:translate(0,0) scale(1);
+        transform:
+            translate(0,0)
+            scale(1);
     }
+
     to{
-        transform:translate(40px,-25px) scale(1.15);
+        transform:
+            translate(40px,-25px)
+            scale(1.15);
     }
+
 }
 
-/* =========================
+
+/* =====================================================
    PARTICLES
-========================= */
+===================================================== */
 
 #particles{
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:1;
+
 }
+
 
 .particle{
+
     position:absolute;
+
     width:2px;
     height:2px;
+
     background:#fff;
+
     border-radius:50%;
+
     opacity:.4;
-    animation:twinkle 3s ease-in-out infinite;
+
+    animation:
+        twinkle
+        3s
+        ease-in-out
+        infinite;
+
 }
+
 
 @keyframes twinkle{
+
     0%,100%{
+
         opacity:.15;
+
         transform:scale(.7);
+
     }
+
     50%{
+
         opacity:.8;
+
         transform:scale(1.4);
+
     }
+
 }
 
-/* =========================
+
+/* =====================================================
    MAIN
-========================= */
+===================================================== */
 
 main{
+
     width:100%;
+
     max-width:900px;
+
     margin:auto;
-    padding:55px 18px 100px;
+
+    padding:
+        55px
+        18px
+        100px;
+
     position:relative;
+
     z-index:5;
+
 }
+
+
+/* =====================================================
+   INTRO
+===================================================== */
 
 .intro{
+
     text-align:center;
+
     margin-bottom:45px;
-    animation:fadeUp 1.2s ease both;
+
+    animation:
+        fadeUp
+        1.2s
+        ease
+        both;
+
 }
+
 
 .intro-small{
+
     color:#aaa;
+
     font-size:.78rem;
+
     letter-spacing:4px;
+
     text-transform:uppercase;
+
     margin-bottom:15px;
+
 }
+
 
 .intro h1{
-    font-size:clamp(2.2rem,8vw,4.5rem);
+
+    font-size:
+        clamp(
+            2.2rem,
+            8vw,
+            4.5rem
+        );
+
     line-height:1;
+
     font-weight:500;
+
     letter-spacing:-2px;
+
 }
+
 
 .intro h1 span{
+
     color:#b00020;
+
     text-shadow:
-        0 0 20px rgba(176,0,32,.45),
-        0 0 50px rgba(176,0,32,.15);
+        0 0 20px
+        rgba(176,0,32,.45),
+
+        0 0 50px
+        rgba(176,0,32,.15);
+
 }
+
 
 .intro p{
+
     color:#888;
+
     margin-top:18px;
+
     font-family:Arial,sans-serif;
+
     font-size:.85rem;
+
     line-height:1.7;
+
 }
+
 
 @keyframes fadeUp{
+
     from{
+
         opacity:0;
-        transform:translateY(30px);
+
+        transform:
+            translateY(30px);
+
     }
+
     to{
+
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
+
     }
+
 }
 
-/* =========================
-   CARD
-========================= */
+
+/* =====================================================
+   CARD WRAPPER
+===================================================== */
 
 .card-wrapper{
+
     perspective:1400px;
-    margin:28px auto;
+
+    margin:
+        28px
+        auto;
+
     max-width:680px;
+
+    /*
+       PENTING:
+       Wrapper sekarang tidak memotong
+       isi kartu.
+    */
+
+    overflow:visible;
+
 }
+
+
+/* =====================================================
+   CARD
+===================================================== */
 
 .card{
+
     width:100%;
-    min-height:420px;
+
+    /*
+       Tinggi dasar kartu.
+       Isi belakang bisa di-scroll.
+    */
+
+    height:470px;
+
     position:relative;
+
     transform-style:preserve-3d;
-    transition:transform .9s cubic-bezier(.2,.8,.2,1);
+
+    transition:
+        transform
+        .9s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+
     cursor:pointer;
+
 }
 
+
+/* Kartu terbuka */
+
 .card.open{
-    transform:rotateY(180deg);
+
+    transform:
+        rotateY(180deg);
+
 }
+
+
+/* =====================================================
+   FRONT + BACK
+===================================================== */
 
 .card-front,
 .card-back{
+
     width:100%;
-    min-height:420px;
+
+    height:100%;
+
     position:absolute;
+
     inset:0;
 
     backface-visibility:hidden;
+
     -webkit-backface-visibility:hidden;
 
     border-radius:28px;
-    overflow:hidden;
 
-    border:1px solid rgba(255,255,255,.12);
+    border:
+        1px solid
+        rgba(255,255,255,.12);
 
     box-shadow:
-        0 25px 80px rgba(0,0,0,.65),
-        0 0 0 1px rgba(120,0,20,.08);
+
+        0 25px 80px
+        rgba(0,0,0,.65),
+
+        0 0 0 1px
+        rgba(120,0,20,.08);
 
     backdrop-filter:blur(25px);
+
     -webkit-backdrop-filter:blur(25px);
+
 }
 
-/* Front */
+
+/* =====================================================
+   CARD FRONT
+===================================================== */
 
 .card-front{
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
-    padding:45px 30px;
+
+    padding:
+        45px
+        30px;
+
+    /*
+       Front boleh hidden
+       karena tidak memiliki
+       isi panjang.
+    */
+
+    overflow:hidden;
 
     background:
+
         radial-gradient(
             circle at 30% 20%,
             rgba(140,0,25,.22),
             transparent 35%
         ),
+
         linear-gradient(
             145deg,
             rgba(255,255,255,.075),
             rgba(255,255,255,.025)
         );
+
 }
+
 
 .card-front::before{
+
     content:"";
+
     position:absolute;
+
     inset:10px;
+
     border-radius:21px;
-    border:1px solid rgba(150,0,25,.15);
+
+    border:
+        1px solid
+        rgba(150,0,25,.15);
+
     pointer-events:none;
+
 }
+
 
 .card-front:hover{
-    border-color:rgba(180,0,30,.35);
+
+    border-color:
+        rgba(180,0,30,.35);
+
 }
+
+
+/* =====================================================
+   CARD NUMBER
+===================================================== */
 
 .card-number{
+
     font-family:Arial,sans-serif;
+
     color:#777;
+
     font-size:.72rem;
+
     letter-spacing:4px;
+
     margin-bottom:28px;
+
 }
+
+
+/* =====================================================
+   FRONT ICON
+===================================================== */
 
 .front-icon{
+
     font-size:3rem;
+
     margin-bottom:24px;
+
     filter:
-        drop-shadow(0 0 12px rgba(180,0,30,.45));
+        drop-shadow(
+            0 0 12px
+            rgba(180,0,30,.45)
+        );
+
 }
+
+
+/* =====================================================
+   FRONT TITLE
+===================================================== */
 
 .front-title{
-    font-size:clamp(2rem,7vw,3.4rem);
+
+    font-size:
+        clamp(
+            2rem,
+            7vw,
+            3.4rem
+        );
+
     font-weight:500;
+
     line-height:1.1;
+
 }
+
 
 .front-title span{
+
     color:#b00020;
+
     text-shadow:
-        0 0 20px rgba(176,0,32,.4);
+        0 0 20px
+        rgba(176,0,32,.4);
+
 }
+
+
+/* =====================================================
+   FRONT HINT
+===================================================== */
 
 .front-hint{
+
     margin-top:30px;
+
     color:#777;
+
     font-family:Arial,sans-serif;
+
     font-size:.75rem;
+
     letter-spacing:1px;
+
 }
+
 
 .front-hint::after{
+
     content:"  →";
+
     color:#a0001c;
+
 }
 
-/* Back */
+
+/* =====================================================
+   CARD BACK
+===================================================== */
 
 .card-back{
-    transform:rotateY(180deg);
-    padding:40px 34px;
+
+    transform:
+        rotateY(180deg);
+
+    padding:
+        40px
+        34px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    /*
+       INI PERBAIKAN UTAMA.
+
+       Bagian belakang kartu sekarang
+       dapat di-scroll jika isinya
+       terlalu panjang.
+    */
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    -webkit-overflow-scrolling:touch;
+
+    overscroll-behavior:contain;
+
+    touch-action:pan-y;
 
     background:
+
         radial-gradient(
             circle at 80% 10%,
             rgba(130,0,20,.18),
             transparent 35%
         ),
+
         linear-gradient(
             145deg,
             rgba(25,25,25,.97),
             rgba(7,7,7,.98)
         );
 
-    display:flex;
-    flex-direction:column;
 }
+
+
+/*
+   Scrollbar kartu
+*/
+
+.card-back::-webkit-scrollbar{
+
+    width:4px;
+
+}
+
+
+.card-back::-webkit-scrollbar-track{
+
+    background:
+        rgba(255,255,255,.03);
+
+    border-radius:10px;
+
+}
+
+
+.card-back::-webkit-scrollbar-thumb{
+
+    background:#8b0018;
+
+    border-radius:10px;
+
+}
+
 
 .card-back::before{
+
     content:"";
+
     position:absolute;
+
     width:160px;
+
     height:160px;
+
     right:-80px;
+
     top:-80px;
+
     border-radius:50%;
+
     background:#790015;
+
     filter:blur(90px);
+
     opacity:.25;
+
+    pointer-events:none;
+
 }
+
+
+/* =====================================================
+   CARD TITLE
+===================================================== */
 
 .card-title{
-    font-size:clamp(1.8rem,6vw,2.7rem);
+
+    font-size:
+        clamp(
+            1.8rem,
+            6vw,
+            2.7rem
+        );
+
     font-weight:500;
+
     line-height:1.15;
+
     margin-bottom:22px;
+
 }
+
 
 .card-title .accent{
+
     color:#c00025;
-    text-shadow:0 0 20px rgba(192,0,37,.35);
+
+    text-shadow:
+        0 0 20px
+        rgba(192,0,37,.35);
+
 }
+
+
+/* =====================================================
+   CARD TEXT
+===================================================== */
 
 .card-text{
+
     font-family:Arial,sans-serif;
+
     color:#c0c0c0;
+
     font-size:.92rem;
+
     line-height:1.9;
+
 }
+
 
 .card-text strong{
+
     color:#eee;
+
     font-weight:600;
+
 }
 
+
+/* =====================================================
+   NOTE
+===================================================== */
+
 .note{
+
     margin-top:25px;
+
     padding:20px;
+
     border-radius:17px;
 
     background:
+
         linear-gradient(
             135deg,
             rgba(130,0,20,.13),
             rgba(255,255,255,.025)
         );
 
-    border:1px solid rgba(160,0,25,.18);
+    border:
+        1px solid
+        rgba(160,0,25,.18);
 
     font-family:Arial,sans-serif;
+
     color:#aaa;
+
     line-height:1.7;
+
     font-size:.82rem;
+
 }
 
-/* =========================
-   BUTTON
-========================= */
+
+/* =====================================================
+   BUTTON AREA
+===================================================== */
 
 .card-actions{
+
     margin-top:auto;
+
     padding-top:28px;
+
     display:flex;
+
     justify-content:flex-end;
+
 }
 
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
 .btn{
+
     border:none;
+
     outline:none;
+
     cursor:pointer;
 
-    padding:13px 21px;
+    padding:
+        13px
+        21px;
+
     border-radius:999px;
 
     font-family:Arial,sans-serif;
+
     font-size:.76rem;
+
     letter-spacing:.5px;
 
     transition:.3s;
+
+    flex-shrink:0;
+
 }
 
+
 .btn.primary{
+
     color:#fff;
 
     background:
+
         linear-gradient(
             135deg,
             #700014,
@@ -455,165 +949,310 @@ main{
         );
 
     box-shadow:
-        0 8px 25px rgba(120,0,20,.3);
+
+        0 8px 25px
+        rgba(120,0,20,.3);
+
 }
+
 
 .btn.primary:hover{
-    transform:translateY(-2px);
+
+    transform:
+        translateY(-2px);
+
     box-shadow:
-        0 12px 30px rgba(150,0,25,.45);
+
+        0 12px 30px
+        rgba(150,0,25,.45);
+
 }
+
 
 .btn.primary:active{
-    transform:scale(.96);
+
+    transform:
+        scale(.96);
+
 }
 
-/* =========================
+
+/* =====================================================
    PROGRESS
-========================= */
+===================================================== */
 
 .progress{
+
     max-width:680px;
-    margin:35px auto 0;
+
+    margin:
+        35px
+        auto
+        0;
+
 }
+
 
 .progress-line{
+
     height:2px;
-    background:rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.08);
+
     border-radius:5px;
+
     overflow:hidden;
+
 }
 
+
 .progress-fill{
+
     height:100%;
+
     width:16.66%;
+
     background:
+
         linear-gradient(
             90deg,
             #650012,
             #c00025
         );
-    box-shadow:0 0 12px rgba(180,0,30,.45);
+
+    box-shadow:
+        0 0 12px
+        rgba(180,0,30,.45);
+
     transition:.5s ease;
+
 }
+
 
 .progress-dots{
+
     display:flex;
+
     justify-content:space-between;
+
     margin-top:12px;
+
 }
+
 
 .dot{
+
     width:5px;
+
     height:5px;
+
     border-radius:50%;
+
     background:#333;
+
     transition:.3s;
+
 }
+
 
 .dot.active{
+
     background:#b00020;
-    box-shadow:0 0 10px rgba(180,0,30,.7);
+
+    box-shadow:
+        0 0 10px
+        rgba(180,0,30,.7);
+
 }
 
-/* =========================
+
+/* =====================================================
    GALLERY
-========================= */
+===================================================== */
 
 .photo-grid{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:14px;
+
     margin-top:25px;
+
+    margin-bottom:10px;
+
 }
+
 
 .photo{
+
     height:180px;
+
     border-radius:18px;
+
     overflow:hidden;
+
     position:relative;
+
     background:#111;
-    border:1px solid rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
 }
+
 
 .photo img{
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     display:block;
+
     transition:.6s;
-    filter:saturate(.8) contrast(1.05);
+
+    filter:
+        saturate(.8)
+        contrast(1.05);
+
 }
+
 
 .photo:hover img{
+
     transform:scale(1.06);
-    filter:saturate(1) contrast(1.05);
+
+    filter:
+        saturate(1)
+        contrast(1.05);
+
 }
 
-/* =========================
+
+/* =====================================================
    ENVELOPE
-========================= */
+===================================================== */
 
 .envelope{
-    margin:30px auto 10px;
-    width:min(100%,470px);
+
+    margin:
+        30px
+        auto
+        10px;
+
+    width:
+        min(100%,470px);
+
     padding:30px;
+
     border-radius:20px;
 
     background:
+
         linear-gradient(
             145deg,
             #160307,
             #090909
         );
 
-    border:1px solid rgba(150,0,25,.22);
+    border:
+        1px solid
+        rgba(150,0,25,.22);
 
     box-shadow:
-        inset 0 0 30px rgba(130,0,20,.07),
-        0 15px 45px rgba(0,0,0,.4);
+
+        inset
+        0 0 30px
+        rgba(130,0,20,.07),
+
+        0 15px 45px
+        rgba(0,0,0,.4);
+
 }
+
 
 .envelope-top{
+
     text-align:center;
+
     font-size:2rem;
+
     margin-bottom:20px;
+
 }
+
 
 .letter{
+
     font-family:Arial,sans-serif;
+
     color:#bdbdbd;
+
     line-height:1.9;
+
     font-size:.87rem;
+
 }
+
 
 .letter p{
+
     margin-bottom:16px;
+
 }
+
 
 .signature{
+
     color:#c00025;
+
     margin-top:20px;
+
     font-family:Georgia,serif;
+
     font-style:italic;
+
 }
 
-/* =========================
+
+/* =====================================================
    MUSIC
-========================= */
+===================================================== */
 
 .music-box{
+
     text-align:center;
-    padding:25px 0 5px;
+
+    padding:
+        25px
+        0
+        5px;
+
 }
 
+
 .music-disc{
+
     width:145px;
+
     height:145px;
-    margin:0 auto 25px;
+
+    margin:
+        0
+        auto
+        25px;
+
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle,
             #050505 0 12%,
@@ -623,289 +1262,574 @@ main{
             #090909 49% 100%
         );
 
-    border:1px solid rgba(180,0,30,.35);
+    border:
+        1px solid
+        rgba(180,0,30,.35);
 
     box-shadow:
-        0 0 35px rgba(130,0,20,.2);
 
-    animation:spin 8s linear infinite;
+        0 0 35px
+        rgba(130,0,20,.2);
+
+    animation:
+        spin
+        8s
+        linear
+        infinite;
+
 }
+
 
 .music-disc.paused{
+
     animation-play-state:paused;
+
 }
+
 
 @keyframes spin{
+
     to{
-        transform:rotate(360deg);
+
+        transform:
+            rotate(360deg);
+
     }
+
 }
+
 
 .music-center{
+
     position:absolute;
+
     width:27px;
+
     height:27px;
+
     border-radius:50%;
+
     background:#b00020;
-    border:5px solid #080808;
+
+    border:
+        5px solid
+        #080808;
+
 }
+
 
 .music-title{
+
     font-size:1.3rem;
+
     margin-bottom:8px;
+
 }
+
 
 .music-sub{
+
     font-family:Arial,sans-serif;
+
     color:#777;
+
     font-size:.75rem;
+
 }
 
-/* =========================
+
+/* =====================================================
    BIRTHDAY
-========================= */
+===================================================== */
 
 .birthday{
+
     text-align:center;
-    padding:15px 0;
+
+    padding:
+        15px
+        0;
+
 }
+
 
 .cake{
+
     font-size:3.2rem;
+
     margin-bottom:25px;
-    filter:drop-shadow(0 0 14px rgba(180,0,30,.3));
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(180,0,30,.3)
+        );
+
 }
+
 
 .birthday-word{
-    font-size:clamp(2.5rem,10vw,5.5rem);
+
+    font-size:
+        clamp(
+            2.5rem,
+            10vw,
+            5.5rem
+        );
+
     line-height:.95;
+
     font-weight:600;
+
     letter-spacing:-3px;
+
 }
+
 
 .birthday-word span{
+
     color:#c00025;
+
     text-shadow:
-        0 0 20px rgba(192,0,37,.45),
-        0 0 50px rgba(192,0,37,.15);
+
+        0 0 20px
+        rgba(192,0,37,.45),
+
+        0 0 50px
+        rgba(192,0,37,.15);
+
 }
+
 
 .date{
+
     margin-top:22px;
+
     color:#777;
+
     font-family:Arial,sans-serif;
+
     letter-spacing:5px;
+
     font-size:.7rem;
+
 }
+
 
 .final-message{
-    margin:28px auto 0;
+
+    margin:
+        28px
+        auto
+        0;
+
     max-width:470px;
+
     color:#aaa;
+
     font-family:Arial,sans-serif;
+
     font-size:.87rem;
+
     line-height:1.8;
+
 }
+
 
 .final-sign{
+
     margin-top:25px;
+
     color:#c00025;
+
     font-style:italic;
+
 }
 
-/* =========================
+
+/* =====================================================
    HEARTS
-========================= */
+===================================================== */
 
 #hearts{
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:30;
+
 }
+
 
 .heart{
+
     position:absolute;
+
     color:#b00020;
+
     font-size:14px;
+
     opacity:0;
-    animation:heartFloat 5s linear forwards;
-    text-shadow:0 0 10px rgba(180,0,30,.6);
+
+    animation:
+        heartFloat
+        5s
+        linear
+        forwards;
+
+    text-shadow:
+        0 0 10px
+        rgba(180,0,30,.6);
+
 }
 
+
 @keyframes heartFloat{
+
     0%{
-        transform:translateY(0) scale(.7);
+
+        transform:
+            translateY(0)
+            scale(.7);
+
         opacity:0;
+
     }
 
     15%{
+
         opacity:.8;
+
     }
 
     100%{
-        transform:translateY(-100vh) translateX(var(--move)) scale(1.2);
+
+        transform:
+            translateY(-100vh)
+            translateX(var(--move))
+            scale(1.2);
+
         opacity:0;
+
     }
+
 }
 
-/* =========================
+
+/* =====================================================
    CONFETTI
-========================= */
+===================================================== */
 
 .confetti{
+
     position:fixed;
+
     width:7px;
+
     height:12px;
+
     top:-20px;
+
     z-index:100;
+
     pointer-events:none;
-    animation:confettiFall 4s linear forwards;
+
+    animation:
+        confettiFall
+        4s
+        linear
+        forwards;
+
 }
 
+
 @keyframes confettiFall{
+
     to{
+
         transform:
             translateY(110vh)
             rotate(720deg);
+
     }
+
 }
 
-/* =========================
+
+/* =====================================================
    HIDDEN
-========================= */
+===================================================== */
 
 .hidden{
+
     display:none!important;
+
 }
 
-/* =========================
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:600px){
 
     main{
-        padding:38px 13px 80px;
+
+        padding:
+            38px
+            13px
+            80px;
+
     }
+
 
     .intro{
+
         margin-bottom:30px;
+
     }
+
 
     .intro h1{
+
         letter-spacing:-1px;
+
     }
+
 
     .card-wrapper{
-        margin:20px auto;
+
+        margin:
+            20px
+            auto;
+
     }
 
-    .card,
-    .card-front,
-    .card-back{
-        min-height:470px;
+
+    /*
+       Kartu lebih tinggi di HP.
+       Tetap scrollable kalau isi lebih panjang.
+    */
+
+    .card{
+
+        height:500px;
+
     }
+
 
     .card-front{
-        padding:35px 22px;
+
+        padding:
+            35px
+            22px;
+
     }
+
 
     .card-back{
-        padding:30px 23px;
+
+        padding:
+            30px
+            23px;
+
     }
+
 
     .card-text{
+
         font-size:.86rem;
+
         line-height:1.8;
+
     }
+
 
     .photo{
+
         height:145px;
+
     }
 
+
     .birthday-word{
-        font-size:clamp(2.2rem,11vw,4rem);
+
+        font-size:
+            clamp(
+                2.2rem,
+                11vw,
+                4rem
+            );
+
         letter-spacing:-2px;
+
     }
+
 }
+
+
+/* =====================================================
+   SMALL PHONE
+===================================================== */
 
 @media(max-width:380px){
 
-    .card,
-    .card-front,
-    .card-back{
-        min-height:500px;
+    .card{
+
+        height:510px;
+
     }
+
 
     .photo{
+
         height:125px;
+
     }
 
+
     .card-back{
-        padding:26px 19px;
+
+        padding:
+            26px
+            19px;
+
     }
+
 }
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms!important;
+
+        animation-iteration-count:1!important;
+
+        scroll-behavior:auto!important;
+
+        transition-duration:.01ms!important;
+
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
 <div class="glow one"></div>
+
 <div class="glow two"></div>
+
 <div class="glow three"></div>
 
 <div id="particles"></div>
+
 <div id="hearts"></div>
+
 
 <main>
 
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
 <section class="intro">
-    <div class="intro-small">A little something for you</div>
+
+    <div class="intro-small">
+        A little something for you
+    </div>
+
 
     <h1>
+
         From Ur <span>Love</span>
+
     </h1>
 
+
     <p>
+
         Ada beberapa kartu kecil yang dibuat<br>
+
         untuk seseorang yang spesial.
+
     </p>
+
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      CARD 1
-========================= -->
+===================================================== -->
 
 <div class="card-wrapper">
 
 <div class="card" data-card="1">
 
+
     <div class="card-front">
 
-        <div class="card-number">01 / 06</div>
-
-        <div class="front-icon">♥</div>
-
-        <div class="front-title">
-            ALOO<br>
-            <span>adee</span>
-            :⁠D<br>
+        <div class="card-number">
+            01 / 06
         </div>
 
+
+        <div class="front-icon">
+            ♥
+        </div>
+
+
+        <div class="front-title">
+
+            ALOO<br>
+
+            <span>adee</span>
+            :⁠D
+
+        </div>
+
+
         <div class="front-hint">
+
             ketuk untuk membuka
+
         </div>
 
     </div>
 
 
+
     <div class="card-back">
 
         <div class="card-title">
-            <span class="accent">adee</span>
+
+            <span class="accent">
+                adee
+            </span>
+
         </div>
+
 
         <div class="card-text">
 
@@ -918,59 +1842,92 @@ main{
 
             <br><br>
 
-            <strong> adee, selamat ulang tahun yaa ❤️</strong>
+            <strong>
+                adee, selamat ulang tahun yaa ❤️
+            </strong>
 
         </div>
+
 
         <div class="note">
+
             tenang, ini belum bagian yang bikin salting.
             masih ada beberapa kartu lagii :P
+
         </div>
 
+
         <div class="card-actions">
-            <button class="btn primary next-btn">
+
+            <button
+                class="btn primary next-btn">
+
                 Lanjut →
+
             </button>
+
         </div>
 
     </div>
 
 </div>
+
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================================
      CARD 2
-========================= -->
+===================================================== -->
 
 <div class="card-wrapper hidden">
 
 <div class="card" data-card="2">
 
+
     <div class="card-front">
 
-        <div class="card-number">02 / 06</div>
-
-        <div class="front-icon">✦</div>
-
-        <div class="front-title">
-            Tentang<br>
-            <span>adee</span>
+        <div class="card-number">
+            02 / 06
         </div>
 
+
+        <div class="front-icon">
+            ✦
+        </div>
+
+
+        <div class="front-title">
+
+            Tentang<br>
+
+            <span>adee</span>
+
+        </div>
+
+
         <div class="front-hint">
+
             ketuk untuk membuka
+
         </div>
 
     </div>
 
 
+
     <div class="card-back">
 
         <div class="card-title">
+
             Kenapa sih<br>
-            <span class="accent">kamu lucu?</span>
+
+            <span class="accent">
+                kamu lucu?
+            </span>
+
         </div>
+
 
         <div class="card-text">
 
@@ -989,306 +1946,500 @@ main{
             <br><br>
 
             Dan entah kenapa...
+
             hal-hal kecil seperti itu justru yang
             paling gampang diingat.
 
         </div>
 
+
         <div class="card-actions">
-            <button class="btn primary next-btn">
+
+            <button
+                class="btn primary next-btn">
+
                 Aku lanjut ya →
+
             </button>
+
         </div>
 
     </div>
 
 </div>
+
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================================
      CARD 3
-========================= -->
+===================================================== -->
 
 <div class="card-wrapper hidden">
 
 <div class="card" data-card="3">
 
+
     <div class="card-front">
 
-        <div class="photo">
-                <img src="foto3.jpg" alt="Kenangan 3">
-            </div>
-
-            <div class="photo">
-                <img src="foto4.jpg" alt="Kenangan 4">
-            </div>
-        
-        <div class="card-number">03 / 06</div>
-
-        <div class="front-icon">⌁</div>
-
-        <div class="front-title">
-            Sedikit<br>
-            <span>kenangan.</span>
+        <div class="card-number">
+            03 / 06
         </div>
 
+
+        <div class="front-icon">
+            ⌁
+        </div>
+
+
+        <div class="front-title">
+
+            Sedikit<br>
+
+            <span>kenangan.</span>
+
+        </div>
+
+
         <div class="front-hint">
+
             ketuk untuk membuka
+
         </div>
 
     </div>
 
 
+
     <div class="card-back">
 
         <div class="card-title">
+
             Beberapa hal<br>
-            yang <span class="accent">sayang</span> dilupakan.
+
+            yang
+            <span class="accent">
+                sayang
+            </span>
+            dilupakan.
+
         </div>
-        
+
+
         <div class="card-text">
+
             Foto-foto mungkin cuma benda kecil.
+
+            <br><br>
+
             Tapi anehnya, satu foto bisa membuat
             kita mengingat banyak hal sekaligus.
+
+            <br><br>
+
             Tawa, tempat, kejadian random,
             bahkan percakapan yang mungkin
             sudah lama terlupakan.
 
         </div>
 
-        <button class="btn primary next-btn">
-                Lanjut →
-        </button>
-        
+
         <div class="photo-grid">
 
-            <div class="photo">
-                <img src="foto1.jpg" alt="Kenangan 1">
-            </div>
 
             <div class="photo">
-                <img src="foto2.jpg" alt="Kenangan 2">
+
+                <img
+                    src="foto1.jpg"
+                    alt="Kenangan 1">
+
             </div>
 
-            <div class="photo">
-                <img src="foto3.jpg" alt="Kenangan 3">
-            </div>
 
             <div class="photo">
-                <img src="foto4.jpg" alt="Kenangan 4">
+
+                <img
+                    src="foto2.jpg"
+                    alt="Kenangan 2">
+
             </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="foto3.jpg"
+                    alt="Kenangan 3">
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="foto4.jpg"
+                    alt="Kenangan 4">
+
+            </div>
+
 
         </div>
 
 
         <div class="card-actions">
-            
+
+            <button
+                class="btn primary next-btn">
+
+                Lanjut →
+
+            </button>
+
         </div>
 
     </div>
 
 </div>
+
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================================
      CARD 4
-========================= -->
+===================================================== -->
 
 <div class="card-wrapper hidden">
 
 <div class="card" data-card="4">
 
+
     <div class="card-front">
 
-        <div class="card-number">04 / 06</div>
-
-        <div class="front-icon">♡</div>
-
-        <div class="front-title">
-            Ada yang<br>
-            <span>ingin dikatakan.</span>
+        <div class="card-number">
+            04 / 06
         </div>
 
+
+        <div class="front-icon">
+            ♡
+        </div>
+
+
+        <div class="front-title">
+
+            Ada yang<br>
+
+            <span>
+                ingin dikatakan.
+            </span>
+
+        </div>
+
+
         <div class="front-hint">
+
             ketuk untuk membuka
+
         </div>
 
     </div>
+
 
 
     <div class="card-back">
 
         <div class="card-title">
+
             Sebentar,<br>
-            ini <span class="accent">serius.</span>
+
+            ini
+            <span class="accent">
+                serius.
+            </span>
+
         </div>
+
 
         <div class="envelope">
 
+
             <div class="envelope-top">
+
                 ♥
+
             </div>
+
 
             <div class="letter">
 
+
                 <p>
+
                     Mungkin nggak selalu pandai
                     bilang sesuatu dengan cara yang
                     bagus.
+
                 </p>
 
+
                 <p>
+
                     Kadang malah sok cuek,
                     kadang bercanda terus,
                     dan kadang bingung sendiri
                     mau ngomong apa.
+
                 </p>
 
+
                 <p>
+
                     Tapi ada satu hal yang pasti:
                     keberadaan kamu itu berarti.
+
                 </p>
 
+
                 <p>
+
                     Jadi jangan lupa untuk menikmati
                     hari ini. Kamu sudah sampai sejauh
                     ini, dan itu sendiri sudah layak
                     dirayakan.
+
                 </p>
 
+
                 <div class="signature">
+
                     — seseorang yang sayang kamu
+
                 </div>
+
 
             </div>
 
         </div>
 
+
         <div class="card-actions">
-            <button class="btn primary next-btn">
+
+            <button
+                class="btn primary next-btn">
+
                 Lanjut →
+
             </button>
+
         </div>
 
     </div>
 
 </div>
+
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================================
      CARD 5
-========================= -->
+===================================================== -->
 
 <div class="card-wrapper hidden">
 
 <div class="card" data-card="5">
 
+
     <div class="card-front">
 
-        <div class="card-number">05 / 06</div>
-
-        <div class="front-icon">♫</div>
-
-        <div class="front-title">
-            Putar<br>
-            <span>lagunya.</span>
+        <div class="card-number">
+            05 / 06
         </div>
 
+
+        <div class="front-icon">
+            ♫
+        </div>
+
+
+        <div class="front-title">
+
+            Putar<br>
+
+            <span>
+                lagunya.
+            </span>
+
+        </div>
+
+
         <div class="front-hint">
+
             ketuk untuk membuka
+
         </div>
 
     </div>
+
 
 
     <div class="card-back">
 
+
         <div class="card-title">
+
             Karena beberapa<br>
-            perasaan lebih enak <span class="accent">didengar.</span>
+
+            perasaan lebih enak
+            <span class="accent">
+                didengar.
+            </span>
+
         </div>
+
 
         <div class="music-box">
 
-            <div class="music-disc" id="musicDisc">
-                <div class="music-center"></div>
+
+            <div
+                class="music-disc paused"
+                id="musicDisc">
+
+                <div
+                    class="music-center">
+                </div>
+
             </div>
+
 
             <div class="music-title">
+
                 A little song for you
+
             </div>
 
+
             <div class="music-sub">
+
                 Tekan tombol untuk memutar musik
+
             </div>
+
 
             <br>
 
-            <button class="btn primary" id="musicBtn">
+
+            <button
+                class="btn primary"
+                id="musicBtn">
+
                 ▶ Putar musik
+
             </button>
 
-            <audio id="music" src="musik.mp3"></audio>
+
+            <audio
+                id="music"
+                src="musik.mp3">
+            </audio>
+
 
         </div>
 
+
         <div class="card-actions">
-            <button class="btn primary next-btn">
+
+            <button
+                class="btn primary next-btn">
+
                 Sudah, lanjut →
+
             </button>
+
         </div>
 
     </div>
 
 </div>
+
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================================
      CARD 6
-========================= -->
+===================================================== -->
 
 <div class="card-wrapper hidden">
 
 <div class="card" data-card="6">
 
+
     <div class="card-front">
 
-        <div class="card-number">06 / 06</div>
-
-        <div class="front-icon">🎂</div>
-
-        <div class="front-title">
-            Bagian<br>
-            <span>terakhir.</span>
+        <div class="card-number">
+            06 / 06
         </div>
 
+
+        <div class="front-icon">
+            🎂
+        </div>
+
+
+        <div class="front-title">
+
+            Bagian<br>
+
+            <span>
+                terakhir.
+            </span>
+
+        </div>
+
+
         <div class="front-hint">
+
             ketuk untuk membuka
+
         </div>
 
     </div>
 
 
+
     <div class="card-back">
+
 
         <div class="birthday">
 
+
             <div class="cake">
+
                 🎂
+
             </div>
+
 
             <div class="birthday-word">
+
                 HAPPY<br>
-                <span>BIRTHDAY</span>
+
+                <span>
+                    BIRTHDAY
+                </span>
+
             </div>
 
+
             <div class="date">
+
                 10 • 09 • 2026
+
             </div>
+
 
             <div class="final-message">
 
@@ -1303,234 +2454,419 @@ main{
                 Sesekali boleh kok ketawa karena hal
                 yang nggak jelas.
 
+
                 <div class="final-sign">
+
                     Have a beautiful day. ❤️
+
                 </div>
 
             </div>
 
+
             <br>
 
-            <button class="btn primary" id="celebrateBtn">
+
+            <button
+                class="btn primary"
+                id="celebrateBtn">
+
                 Rayakan 🎉
+
             </button>
+
 
         </div>
 
     </div>
 
 </div>
+
 </div>
 
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
 
 <div class="progress">
 
+
     <div class="progress-line">
-        <div class="progress-fill" id="progressFill"></div>
+
+        <div
+            class="progress-fill"
+            id="progressFill">
+        </div>
+
     </div>
+
 
     <div class="progress-dots">
 
+
         <div class="dot active"></div>
+
         <div class="dot"></div>
+
         <div class="dot"></div>
+
         <div class="dot"></div>
+
         <div class="dot"></div>
+
         <div class="dot"></div>
+
 
     </div>
 
 </div>
 
+
 </main>
+
+
 
 <script>
 
-/* =========================
+/* =====================================================
    CARD SYSTEM
-========================= */
+===================================================== */
 
-const wrappers = document.querySelectorAll(".card-wrapper");
-const cards = document.querySelectorAll(".card");
+const wrappers =
+    document.querySelectorAll(".card-wrapper");
 
-const progressFill = document.getElementById("progressFill");
-const dots = document.querySelectorAll(".dot");
+const cards =
+    document.querySelectorAll(".card");
+
+const progressFill =
+    document.getElementById(
+        "progressFill"
+    );
+
+const dots =
+    document.querySelectorAll(".dot");
 
 let currentCard = 0;
 
 
-/* =========================
+/* =====================================================
    OPEN CARD
-========================= */
+=====================================================
 
-cards.forEach((card) => {
+   PERBAIKAN PENTING:
 
-    card.addEventListener("click", function(e) {
+   Sebelumnya seluruh kartu diberi
+   event click.
 
-        // Jangan membuka/menutup kartu
-        // kalau yang ditekan adalah tombol
-        if(e.target.closest("button")){
-            return;
+   Akibatnya ketika mencoba scroll
+   bagian belakang kartu, interaksi
+   bisa terasa aneh.
+
+   Sekarang kartu hanya membuka
+   ketika BAGIAN DEPAN yang ditekan.
+
+===================================================== */
+
+cards.forEach((card)=>{
+
+    const front =
+        card.querySelector(".card-front");
+
+
+    front.addEventListener(
+        "click",
+        function(){
+
+            card.classList.add("open");
+
         }
-
-        card.classList.toggle("open");
-
-    });
+    );
 
 });
 
 
-/* =========================
+/* =====================================================
    NEXT BUTTON
-========================= */
+===================================================== */
 
-const nextButtons = document.querySelectorAll(".next-btn");
+const nextButtons =
+    document.querySelectorAll(".next-btn");
 
-nextButtons.forEach((button, index) => {
 
-    button.addEventListener("click", function(e){
+nextButtons.forEach((button)=>{
 
-        e.stopPropagation();
+    button.addEventListener(
+        "click",
+        function(e){
 
-        const currentWrapper = wrappers[currentCard];
-        const currentCardElement = cards[currentCard];
+            e.stopPropagation();
 
-        // Tutup kartu sekarang
-        currentCardElement.classList.remove("open");
 
-        setTimeout(() => {
+            const currentWrapper =
+                wrappers[currentCard];
 
-            // Sembunyikan kartu sekarang
-            currentWrapper.classList.add("hidden");
 
-            // Pindah ke kartu berikutnya
-            currentCard++;
+            const currentCardElement =
+                cards[currentCard];
 
-            if(currentCard >= wrappers.length){
-                currentCard = wrappers.length - 1;
-            }
 
-            // Tampilkan kartu berikutnya
-            wrappers[currentCard].classList.remove("hidden");
+            /*
+               Tutup kartu sekarang
+            */
 
-            // Update progress
-            updateProgress();
+            currentCardElement
+                .classList
+                .remove("open");
 
-            // Scroll perlahan ke kartu
-            setTimeout(() => {
 
-                wrappers[currentCard].scrollIntoView({
-                    behavior:"smooth",
-                    block:"center"
-                });
+            setTimeout(()=>{
 
-            },100);
 
-        },500);
+                /*
+                   Sembunyikan kartu
+                */
 
-    });
+                currentWrapper
+                    .classList
+                    .add("hidden");
+
+
+                /*
+                   Pindah ke kartu berikutnya
+                */
+
+                currentCard++;
+
+
+                if(
+                    currentCard >=
+                    wrappers.length
+                ){
+
+                    currentCard =
+                        wrappers.length - 1;
+
+                }
+
+
+                /*
+                   Tampilkan kartu baru
+                */
+
+                wrappers[currentCard]
+                    .classList
+                    .remove("hidden");
+
+
+                /*
+                   Reset scroll kartu baru
+                */
+
+                const newBack =
+                    cards[currentCard]
+                    .querySelector(
+                        ".card-back"
+                    );
+
+
+                if(newBack){
+
+                    newBack.scrollTop = 0;
+
+                }
+
+
+                /*
+                   Update progress
+                */
+
+                updateProgress();
+
+
+                /*
+                   Scroll halaman
+                */
+
+                setTimeout(()=>{
+
+                    wrappers[currentCard]
+                        .scrollIntoView({
+
+                            behavior:"smooth",
+
+                            block:"center"
+
+                        });
+
+                },100);
+
+
+            },500);
+
+        }
+    );
 
 });
 
 
-/* =========================
+/* =====================================================
    PROGRESS
-========================= */
+===================================================== */
 
 function updateProgress(){
 
     const percentage =
-        ((currentCard + 1) / wrappers.length) * 100;
+        (
+            (currentCard + 1) /
+            wrappers.length
+        ) * 100;
 
-    progressFill.style.width = percentage + "%";
+
+    progressFill.style.width =
+        percentage + "%";
 
 
-    dots.forEach((dot,index)=>{
+    dots.forEach(
+        (dot,index)=>{
 
-        dot.classList.toggle(
-            "active",
-            index <= currentCard
-        );
+            dot.classList.toggle(
+                "active",
+                index <= currentCard
+            );
 
-    });
+        }
+    );
 
 }
 
 
-/* =========================
+/* =====================================================
    PARTICLES
-========================= */
+===================================================== */
 
 const particles =
-    document.getElementById("particles");
+    document.getElementById(
+        "particles"
+    );
+
 
 function createParticles(){
 
     const amount =
-        window.innerWidth < 600 ? 35 : 60;
+        window.innerWidth < 600
+        ? 35
+        : 60;
 
-    for(let i=0;i<amount;i++){
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
 
         const particle =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        particle.className = "particle";
+
+        particle.className =
+            "particle";
+
 
         particle.style.left =
             Math.random()*100 + "%";
 
+
         particle.style.top =
             Math.random()*100 + "%";
+
 
         particle.style.animationDelay =
             Math.random()*4 + "s";
 
-        particle.style.animationDuration =
-            (2 + Math.random()*4) + "s";
 
-        particles.appendChild(particle);
+        particle.style.animationDuration =
+            (
+                2 +
+                Math.random()*4
+            ) + "s";
+
+
+        particles.appendChild(
+            particle
+        );
 
     }
 
 }
 
+
 createParticles();
 
 
-/* =========================
+/* =====================================================
    FLOATING HEARTS
-========================= */
+===================================================== */
 
 const hearts =
-    document.getElementById("hearts");
+    document.getElementById(
+        "hearts"
+    );
+
 
 function createHeart(){
 
     const heart =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    heart.className = "heart";
 
-    heart.innerHTML = "♥";
+    heart.className =
+        "heart";
+
+
+    heart.innerHTML =
+        "♥";
+
 
     heart.style.left =
         Math.random()*100 + "%";
 
+
     heart.style.bottom =
         "-20px";
 
+
     heart.style.fontSize =
-        (9 + Math.random()*13) + "px";
+        (
+            9 +
+            Math.random()*13
+        ) + "px";
+
 
     heart.style.setProperty(
         "--move",
-        (-80 + Math.random()*160) + "px"
+        (
+            -80 +
+            Math.random()*160
+        ) + "px"
     );
 
-    heart.style.animationDuration =
-        (4 + Math.random()*3) + "s";
 
-    hearts.appendChild(heart);
+    heart.style.animationDuration =
+        (
+            4 +
+            Math.random()*3
+        ) + "s";
+
+
+    hearts.appendChild(
+        heart
+    );
 
 
     setTimeout(()=>{
@@ -1542,175 +2878,253 @@ function createHeart(){
 }
 
 
-/* Tidak terlalu banyak hati
-   supaya tetap elegan */
+setInterval(
+    createHeart,
+    900
+);
 
-setInterval(createHeart,900);
 
-
-/* =========================
+/* =====================================================
    MUSIC
-========================= */
+===================================================== */
 
 const music =
-    document.getElementById("music");
+    document.getElementById(
+        "music"
+    );
+
 
 const musicBtn =
-    document.getElementById("musicBtn");
+    document.getElementById(
+        "musicBtn"
+    );
+
 
 const musicDisc =
-    document.getElementById("musicDisc");
+    document.getElementById(
+        "musicDisc"
+    );
 
 
 if(musicBtn){
 
-    musicBtn.addEventListener("click",function(e){
+    musicBtn.addEventListener(
+        "click",
+        function(e){
 
-        e.stopPropagation();
+            e.stopPropagation();
 
-        if(music.paused){
 
-            music.play()
-            .then(()=>{
+            if(music.paused){
+
+                music.play()
+
+                .then(()=>{
+
+                    musicBtn.innerHTML =
+                        "❚❚ Pause musik";
+
+
+                    musicDisc
+                        .classList
+                        .remove(
+                            "paused"
+                        );
+
+                })
+
+                .catch(()=>{
+
+                    musicBtn.innerHTML =
+                        "⚠ Musik tidak bisa diputar";
+
+                });
+
+
+            }else{
+
+                music.pause();
+
 
                 musicBtn.innerHTML =
-                    "❚❚ Pause musik";
+                    "▶ Putar musik";
 
-                musicDisc.classList.remove("paused");
 
-            })
-            .catch(()=>{
+                musicDisc
+                    .classList
+                    .add(
+                        "paused"
+                    );
 
-                musicBtn.innerHTML =
-                    "⚠ Musik tidak bisa diputar";
-
-            });
-
-        }else{
-
-            music.pause();
-
-            musicBtn.innerHTML =
-                "▶ Putar musik";
-
-            musicDisc.classList.add("paused");
+            }
 
         }
-
-    });
+    );
 
 }
 
 
 if(music){
 
-    music.addEventListener("ended",function(){
+    music.addEventListener(
+        "ended",
+        function(){
 
-        musicBtn.innerHTML =
-            "▶ Putar musik";
+            musicBtn.innerHTML =
+                "▶ Putar musik";
 
-        musicDisc.classList.add("paused");
 
-    });
+            musicDisc
+                .classList
+                .add(
+                    "paused"
+                );
+
+        }
+    );
 
 }
 
 
-/* =========================
+/* =====================================================
    CELEBRATION
-========================= */
+===================================================== */
 
 const celebrateBtn =
-    document.getElementById("celebrateBtn");
+    document.getElementById(
+        "celebrateBtn"
+    );
 
 
 if(celebrateBtn){
 
-    celebrateBtn.addEventListener("click",function(e){
+    celebrateBtn.addEventListener(
+        "click",
+        function(e){
 
-        e.stopPropagation();
-
-        // Buat banyak hati
-        for(let i=0;i<18;i++){
-
-            setTimeout(()=>{
-                createHeart();
-            },i*100);
-
-        }
+            e.stopPropagation();
 
 
-        // Buat confetti
-        createConfetti();
+            /*
+               Hati
+            */
+
+            for(
+                let i=0;
+                i<18;
+                i++
+            ){
+
+                setTimeout(()=>{
+
+                    createHeart();
+
+                },i*100);
+
+            }
 
 
-        // Tombol berubah sementara
-        celebrateBtn.innerHTML =
-            "Happy Birthday ❤️";
+            /*
+               Confetti
+            */
 
-        setTimeout(()=>{
+            createConfetti();
+
 
             celebrateBtn.innerHTML =
-                "Rayakan 🎉";
+                "Happy Birthday ❤️";
 
-        },3000);
 
-    });
+            setTimeout(()=>{
+
+                celebrateBtn.innerHTML =
+                    "Rayakan 🎉";
+
+            },3000);
+
+        }
+    );
 
 }
 
 
-/* =========================
+/* =====================================================
    CONFETTI
-========================= */
+===================================================== */
 
 function createConfetti(){
 
     const pieces = 90;
 
-    for(let i=0;i<pieces;i++){
+
+    for(
+        let i=0;
+        i<pieces;
+        i++
+    ){
 
         const confetti =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         confetti.className =
             "confetti";
 
+
         confetti.style.left =
             Math.random()*100 + "%";
+
 
         confetti.style.animationDelay =
             Math.random()*1.5 + "s";
 
-        confetti.style.animationDuration =
-            (3 + Math.random()*2) + "s";
 
-        // Menggunakan CSS filter
-        // supaya tetap dalam nuansa
-        // merah, putih, dan gelap
-        const type = Math.floor(Math.random()*3);
+        confetti.style.animationDuration =
+            (
+                3 +
+                Math.random()*2
+            ) + "s";
+
+
+        const type =
+            Math.floor(
+                Math.random()*3
+            );
+
 
         if(type === 0){
 
             confetti.style.background =
                 "#b00020";
 
-        }else if(type === 1){
+        }
+
+        else if(type === 1){
 
             confetti.style.background =
                 "#eeeeee";
 
-        }else{
+        }
+
+        else{
 
             confetti.style.background =
                 "#5c0010";
 
         }
 
-        confetti.style.transform =
-            `rotate(${Math.random()*360}deg)`;
 
-        document.body.appendChild(confetti);
+        confetti.style.transform =
+            `rotate(
+                ${Math.random()*360}deg
+            )`;
+
+
+        document.body.appendChild(
+            confetti
+        );
 
 
         setTimeout(()=>{
@@ -1724,156 +3138,164 @@ function createConfetti(){
 }
 
 
-/* =========================
-   CLICK EFFECT
-========================= */
-
-document.addEventListener("click",function(e){
-
-    if(
-        e.target.closest(".btn") ||
-        e.target.closest(".card")
-    ){
-
-        return;
-
-    }
-
-    const smallHeart =
-        document.createElement("div");
-
-    smallHeart.innerHTML = "♥";
-
-    smallHeart.style.position =
-        "fixed";
-
-    smallHeart.style.left =
-        e.clientX + "px";
-
-    smallHeart.style.top =
-        e.clientY + "px";
-
-    smallHeart.style.color =
-        "#b00020";
-
-    smallHeart.style.fontSize =
-        "13px";
-
-    smallHeart.style.pointerEvents =
-        "none";
-
-    smallHeart.style.zIndex =
-        "200";
-
-    smallHeart.style.textShadow =
-        "0 0 10px rgba(180,0,30,.7)";
-
-    document.body.appendChild(smallHeart);
-
-
-    smallHeart.animate(
-
-        [
-            {
-                transform:"translate(-50%,-50%) scale(.5)",
-                opacity:0
-            },
-            {
-                transform:"translate(-50%,-80px) scale(1.2)",
-                opacity:1
-            },
-            {
-                transform:"translate(-50%,-120px) scale(.8)",
-                opacity:0
-            }
-        ],
-
-        {
-            duration:900,
-            easing:"ease-out"
-        }
-
-    );
-
-
-    setTimeout(()=>{
-
-        smallHeart.remove();
-
-    },900);
-
-});
-
-
-/* =========================
-   PREVENT DOUBLE TAP ZOOM
-========================= */
-
-let lastTouchEnd = 0;
+/* =====================================================
+   CLICK OUTSIDE EFFECT
+===================================================== */
 
 document.addEventListener(
-    "touchend",
-    function(event){
+    "click",
+    function(e){
 
-        const now =
-            new Date().getTime();
+        if(
+            e.target.closest(".btn") ||
+            e.target.closest(".card")
+        ){
 
-        if(now - lastTouchEnd <= 300){
-
-            event.preventDefault();
+            return;
 
         }
 
-        lastTouchEnd = now;
 
-    },
-    false
+        const smallHeart =
+            document.createElement(
+                "div"
+            );
+
+
+        smallHeart.innerHTML =
+            "♥";
+
+
+        smallHeart.style.position =
+            "fixed";
+
+
+        smallHeart.style.left =
+            e.clientX + "px";
+
+
+        smallHeart.style.top =
+            e.clientY + "px";
+
+
+        smallHeart.style.color =
+            "#b00020";
+
+
+        smallHeart.style.fontSize =
+            "13px";
+
+
+        smallHeart.style.pointerEvents =
+            "none";
+
+
+        smallHeart.style.zIndex =
+            "200";
+
+
+        smallHeart.style.textShadow =
+            "0 0 10px rgba(180,0,30,.7)";
+
+
+        document.body.appendChild(
+            smallHeart
+        );
+
+
+        smallHeart.animate(
+
+            [
+
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(.5)",
+
+                    opacity:0
+                },
+
+
+                {
+                    transform:
+                        "translate(-50%,-80px) scale(1.2)",
+
+                    opacity:1
+                },
+
+
+                {
+                    transform:
+                        "translate(-50%,-120px) scale(.8)",
+
+                    opacity:0
+                }
+
+            ],
+
+            {
+
+                duration:900,
+
+                easing:"ease-out"
+
+            }
+
+        );
+
+
+        setTimeout(()=>{
+
+            smallHeart.remove();
+
+        },900);
+
+    }
 );
 
 
-/* =========================
+/* =====================================================
+   IMAGE ERROR
+===================================================== */
+
+document
+    .querySelectorAll(".photo img")
+    .forEach(img=>{
+
+
+        img.addEventListener(
+            "error",
+            function(){
+
+
+                this.style.display =
+                    "none";
+
+
+                this.parentElement.style.background =
+                    "linear-gradient(135deg,#160307,#080808)";
+
+
+                this.parentElement.innerHTML +=
+
+                    '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#555;font-family:Arial;font-size:.7rem;">Foto belum tersedia</span>';
+
+            }
+
+        );
+
+    });
+
+
+/* =====================================================
    INITIALIZE
-========================= */
+===================================================== */
 
 updateProgress();
 
 
-/* =========================
-   SMALL INTRO EFFECT
-========================= */
-
-window.addEventListener("load",()=>{
-
-    document.body.classList.add("loaded");
-
-});
-
-
-/* =========================
-   IMAGE ERROR HANDLING
-========================= */
-
-document.querySelectorAll(".photo img")
-.forEach(img=>{
-
-    img.addEventListener("error",function(){
-
-        this.style.display = "none";
-
-        this.parentElement.style.background =
-            "linear-gradient(135deg,#160307,#080808)";
-
-        this.parentElement.innerHTML +=
-            '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#555;font-family:Arial;font-size:.7rem;">Foto belum tersedia</span>';
-
-    });
-
-});
-
-
-/* =========================
+/* =====================================================
    END
-========================= */
+===================================================== */
 
 </script>
 
